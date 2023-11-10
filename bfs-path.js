@@ -1,19 +1,19 @@
 function findNeighbors(node, matrix) {
     let [r, c] = node;
     let neighbors = [];
-    // Up
+
    if(r > 0) {
     neighbors.push([r-1,c])
    }
-    // Down
+
     if (r < matrix.length-1) {
         neighbors.push([r + 1,c])
     }
-    // Left
+
     if (c > 0) {
         neighbors.push([r,c - 1])
     }
-    // Right
+
     if (c < matrix[0].length -1) {
         neighbors.push([r,c + 1])
     }
@@ -42,6 +42,32 @@ function bfsPath(matrix, startNode, endValue) {
     }else {
         return false;
     }
+    /*
+    let queue = [startNode];
+    let visited = new Set();
+    let path = [];
+
+    visited.add(`${startNode[0]}, ${startNode[1]}`)
+
+    while(queue.length) {
+        let curr = queue.shift();
+        path.push(curr);
+
+        if(matrix[curr[0]][curr[1]] === endValue) {
+            return path;
+        }
+        let neighbors = findNeighbors(curr, matrix)
+
+        for(let neighbor of neighbors) {
+            let nodeIndices = `${neighbor[0], ${neighbor[1]}`};
+            if(!visited.has(nodeIndices)) {
+                visited.add(nodeIndices);
+                queue.push(neighbor);
+            }
+        }
+        return false;
+    }
+   */
 }
 
 
